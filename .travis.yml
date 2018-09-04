@@ -1,13 +1,15 @@
-before_install:
-- sudo apt-get update && sudo apt-get install --no-install-recommends texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra texlive-latex-recommended dvipng texlive-lang-french latexmk latex-beamer
+sudo: required
+services:
+- docker
 script:
-- mkdir _build
-- latexmk -pdf -output-directory=_build -jobname=carnet-du-Rezo-FR carnet-du-Rezo-FR.tex
+- docker pull rekka/tectonic
+- docker run -v $TRAVIS_BUILD_DIR:/usr/src/tex rekka/tectonic tectonic carnet-du-rezo-2018-2019.tex
 deploy:
   provider: releases
   api_key:
-    secure: L9OTvxBNmTmKcYckNQsDz3ZjC2sdS6PVqzwaHCz55+Ta7b5aitPnMqWnhZ1h8aCMIlNiz27rlmgTJzPh3FDUgBCqjTZ57z7yh1oyhNQ4Zv8KQAUPN/fGc63JkTtmDNiR1Tedo9FiVFURpa2Ev/pY1683Y+aq7EMINuEyo/6EZ85aUAOoe1ruLR0VVSVSJephXJ48xQY59lWWXFmj7dbKkx5N6XO3psjJ7bBOQVnzQkhzz+Abm2aEAgaGfh6997GWa3d+CIJxZb2XBqDGt6KptRDY6bOiMrKwhOdM/PH14Acy6nroj43d/XPRhZq+PY5ayVVl4+WtugkwMwez9ZYdzNeRRrJAMWGBcGMKWuBVizKUixHQm3eFk2ye6PSgzAyta7qUXVSnDSYgpepsun7k2H+oeqABnAPrYAtvjlg3ldprOWbKj6sEhwkBfswHton+EHPoXkxZdakwUqutz7c3Nk+Phb6eRleHtojjI4bbvnFHXPQeUjuTsr+qSEoYdryR5t5TFSc8NcWbw6prIXCskByuN2dOaQPQZ2fqix4bK8+zDohgkJF07sEGO0cJYkwPQszIMjUZWUpC/Z/5U5qBcuAKH0au4TY+U3QR7FHcYrHLc2EMtV4gUTyiMmTBrOUFgLm3V6xEDeqjLFIzwEV1MJCkEn2PZH4osOT6BxNp8wY=
-  file: _build/carnet-du-Rezo-FR.pdf
-  skip_cleanup: true
+    secure: EJ5CZkq5ytVniPAFmsrF/jro91+ohiEKBw+i0QrOQYgF8LBuAGBiMzC6cXEeId7/iWMmK1PBWyUFKIOmKiXK+3muPnAB9CvjmEcw5owwG4cgq5nd9F4PTXNw0VLcd3jEl/Jfb/ii8zXNKfo5lHKlYDqkIg/ub2/OB/05Llr2O3bIvTRf0E5yGn8/pWZqSxhlD/mr7c9f8vjRu7B4njdgAbAg6pX/iYxZnbMtpgGqgdHp2cqJMxBDCzc1RHlhmUqKzsaBSuSvvf4bCQRooFgPsts+pqXbxM0SD8Dp1FwNCuuxVMFTRj9tG7a57AyndZnUIqr7JYHrKja9y09RKY3xWRqyw8iPrp/ppGi34D+lgbvYoPjX8sLOLB3n8WkiE7xmWoFs+M5qarz3EYVGS43rf1PU9F9w/GBr0CyV/VlLOTXjDH4EF4oOKNSTfIto63a8xl6ytBec0oFcFrCfPI+QG++eS3R4EMJhkPAQZCAjHk01192LR5Q4cHk/1pnF+ojHrHrwT5jaIF1kjIbTR8ucnFkc8dpQuomNIBu4FbYZAtO5OKZFDhRISnT1uy3KTOXWOFdRyf1ZTaeZT2waypAxq2zwKB5lSQI5J2B2DO2z2mAy3zMejGuS/JMu2PQg/1Yoo9AjnTl5CSyoZRaaI8YBnpG2DmYrmyXRV26DwiSgF3k=
+  file: carnet-du-rezo-2018-2019.pdf
   on:
+    repo: rezoleo/carnet-du-Rezo-FR
     tags: true
+  skip_cleanup: true
