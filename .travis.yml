@@ -10,4 +10,4 @@ deploy:
   file: _build/carnet-du-Rezo-FR.pdf
   skip_cleanup: true
   on:
-tags: true
+    tags: true
