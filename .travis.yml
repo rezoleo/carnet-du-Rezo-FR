@@ -1,0 +1,13 @@
+before_install:
+- sudo apt-get update && sudo apt-get install --no-install-recommends texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra texlive-latex-recommended dvipng texlive-lang-french latexmk latex-beamer
+script:
+- mkdir _build
+- latexmk -pdf -output-directory=_build -jobname=carnet-du-Rezo-FR carnet-du-Rezo-FR.tex
+deploy:
+  provider: releases
+  api_key:
+    secure: L9OTvxBNmTmKcYckNQsDz3ZjC2sdS6PVqzwaHCz55+Ta7b5aitPnMqWnhZ1h8aCMIlNiz27rlmgTJzPh3FDUgBCqjTZ57z7yh1oyhNQ4Zv8KQAUPN/fGc63JkTtmDNiR1Tedo9FiVFURpa2Ev/pY1683Y+aq7EMINuEyo/6EZ85aUAOoe1ruLR0VVSVSJephXJ48xQY59lWWXFmj7dbKkx5N6XO3psjJ7bBOQVnzQkhzz+Abm2aEAgaGfh6997GWa3d+CIJxZb2XBqDGt6KptRDY6bOiMrKwhOdM/PH14Acy6nroj43d/XPRhZq+PY5ayVVl4+WtugkwMwez9ZYdzNeRRrJAMWGBcGMKWuBVizKUixHQm3eFk2ye6PSgzAyta7qUXVSnDSYgpepsun7k2H+oeqABnAPrYAtvjlg3ldprOWbKj6sEhwkBfswHton+EHPoXkxZdakwUqutz7c3Nk+Phb6eRleHtojjI4bbvnFHXPQeUjuTsr+qSEoYdryR5t5TFSc8NcWbw6prIXCskByuN2dOaQPQZ2fqix4bK8+zDohgkJF07sEGO0cJYkwPQszIMjUZWUpC/Z/5U5qBcuAKH0au4TY+U3QR7FHcYrHLc2EMtV4gUTyiMmTBrOUFgLm3V6xEDeqjLFIzwEV1MJCkEn2PZH4osOT6BxNp8wY=
+  file: _build/carnet-du-Rezo-FR.pdf
+  skip_cleanup: true
+  on:
+tags: true
