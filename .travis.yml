@@ -2,7 +2,7 @@ sudo: required
 services:
 - docker
 script:
-- docker pull rekka/tectonic
+- docker pull dxjoke/tectonic-docker
 - docker run -v $TRAVIS_BUILD_DIR:/usr/src/tex dxjoke/tectonic-docker tectonic carnet-du-rezo-2019-2020.tex
 deploy:
   provider: releases
