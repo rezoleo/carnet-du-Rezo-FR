@@ -3,12 +3,12 @@ services:
 - docker
 script:
 - docker pull dxjoke/tectonic-docker
-- docker run -v $TRAVIS_BUILD_DIR:/usr/src/tex dxjoke/tectonic-docker tectonic carnet-du-rezo-2019-2020.tex
+- docker run -v $TRAVIS_BUILD_DIR:/usr/src/tex dxjoke/tectonic-docker tectonic carnet-du-rezo-2020-2021.tex
 deploy:
   provider: releases
   api_key:
     secure: EJ5CZkq5ytVniPAFmsrF/jro91+ohiEKBw+i0QrOQYgF8LBuAGBiMzC6cXEeId7/iWMmK1PBWyUFKIOmKiXK+3muPnAB9CvjmEcw5owwG4cgq5nd9F4PTXNw0VLcd3jEl/Jfb/ii8zXNKfo5lHKlYDqkIg/ub2/OB/05Llr2O3bIvTRf0E5yGn8/pWZqSxhlD/mr7c9f8vjRu7B4njdgAbAg6pX/iYxZnbMtpgGqgdHp2cqJMxBDCzc1RHlhmUqKzsaBSuSvvf4bCQRooFgPsts+pqXbxM0SD8Dp1FwNCuuxVMFTRj9tG7a57AyndZnUIqr7JYHrKja9y09RKY3xWRqyw8iPrp/ppGi34D+lgbvYoPjX8sLOLB3n8WkiE7xmWoFs+M5qarz3EYVGS43rf1PU9F9w/GBr0CyV/VlLOTXjDH4EF4oOKNSTfIto63a8xl6ytBec0oFcFrCfPI+QG++eS3R4EMJhkPAQZCAjHk01192LR5Q4cHk/1pnF+ojHrHrwT5jaIF1kjIbTR8ucnFkc8dpQuomNIBu4FbYZAtO5OKZFDhRISnT1uy3KTOXWOFdRyf1ZTaeZT2waypAxq2zwKB5lSQI5J2B2DO2z2mAy3zMejGuS/JMu2PQg/1Yoo9AjnTl5CSyoZRaaI8YBnpG2DmYrmyXRV26DwiSgF3k=
-  file: carnet-du-rezo-2019-2020.pdf
+  file: carnet-du-rezo-2020-2021.pdf
   on:
     repo: rezoleo/carnet-du-Rezo-FR
     tags: true
